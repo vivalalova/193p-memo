@@ -13,19 +13,18 @@ struct CardView: View {
 
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 12)
+            RoundedRectangle(cornerRadius: 6)
 
             if card.isFaceUp || card.isMatched {
-                Text(card.content).foregroundColor(.white)
+                Text(card.content)
+                    .foregroundColor(.white)
             }
         }
     }
 }
 
 struct CardView_Previews: PreviewProvider {
-    static let card = MemoGameModel<String>.Card(content: "hi", id: 0)
-
     static var previews: some View {
-        CardView(card: card)
+        CardView(card: MemoGameModel.Card(content: "hi", id: 0))
     }
 }

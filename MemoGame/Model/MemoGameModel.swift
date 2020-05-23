@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MemoGameModel<CardContent> {
+struct MemoGameModel<CardContent: StringProtocol> {
     var cards: [Card] = []
 
     mutating func choose(card: Card) {
@@ -16,12 +16,14 @@ struct MemoGameModel<CardContent> {
     }
 
     init(cardContents: [CardContent]) {
-        for i in 0 ..< cardContents.count {
-            let content = cardContents[i]
-
-            cards.append(Card(content: content, id: i * 2))
-            cards.append(Card(content: content, id: i * 2 + 1))
+        cards = cardContents.enumerated().map { i, content in
+            [
+                Card(content: content, id: i * 2),
+                Card(content: content, id: i * 2 + 1)
+            ]
         }
+        .reduce([], +)
+        .shuffled()
     }
 
     struct Card: Identifiable {

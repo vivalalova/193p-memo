@@ -14,12 +14,16 @@ struct ContentView: View {
     var body: some View {
         HStack {
             ForEach(viewModel.cards) { card in
-                CardView(card: card)
-                    .foregroundColor(.green)
-                    .font(.largeTitle)
-                    .onTapGesture {
-                        self.viewModel.choose(card: card)
-                    }
+
+                GeometryReader { geometry in
+                    CardView(card: card)
+                        .font(.largeTitle)
+                        .frame(height: geometry.size.width * 3 / 2)
+                        .foregroundColor(.green)
+                        .onTapGesture {
+                            self.viewModel.choose(card: card)
+                        }
+                }
             }
         }
         .padding()
@@ -28,6 +32,14 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        Group {
+            ContentView()
+
+            ContentView()
+                .previewDevice(.init(rawValue: "iPhone 11 Pro Max"))
+
+            ContentView()
+                .previewDevice(.init(rawValue: "iPhone 8"))
+        }
     }
 }

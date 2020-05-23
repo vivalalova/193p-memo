@@ -12,8 +12,16 @@ class EmojiMemoryGame {
     private var model = EmojiMemoryGame.createModel()
 
     private static func createModel() -> MemoGameModel<String> {
-        let data = ["😀", "😍", "😎"]
-        return MemoGameModel<String>(cardContents: data)
+        MemoGameModel<String>(cardContents: EmojiMemoryGame.data())
+    }
+
+    private static func data() -> [String] {
+        let data = ["😀", "😍", "😎", "🧑‍🔬", "🥥", "🧄", "🥰", "😇"].shuffled()
+
+        let from = data.count - 5
+        let to = data.count - 2
+        let random = Int.random(in: from...to)
+        return Array(data.dropFirst(random))
     }
 
     var cards: [MemoGameModel<String>.Card] {
