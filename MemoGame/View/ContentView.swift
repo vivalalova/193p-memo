@@ -18,6 +18,8 @@ struct ContentView: View {
                 GeometryReader { geometry in
                     CardView(card: card)
                         .font(.largeTitle)
+                        .minimumScaleFactor(0.5)
+                        .lineLimit(1)
                         .frame(height: geometry.size.width * 3 / 2)
                         .foregroundColor(.green)
                         .onTapGesture {
