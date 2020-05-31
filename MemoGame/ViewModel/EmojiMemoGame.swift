@@ -6,10 +6,10 @@
 //  Copyright © 2020 taxigo. All rights reserved.
 //
 
-import Foundation
+import SwiftUI
 
-class EmojiMemoryGame {
-    private var model = EmojiMemoryGame.createModel()
+class EmojiMemoryGame: ObservableObject {
+    @Published private var model = EmojiMemoryGame.createModel()
 
     private static func createModel() -> MemoGameModel<String> {
         MemoGameModel<String>(cardContents: EmojiMemoryGame.data())

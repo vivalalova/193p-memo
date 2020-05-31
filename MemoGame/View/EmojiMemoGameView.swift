@@ -8,8 +8,8 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    var viewModel = EmojiMemoryGame()
+struct EmojiMemoGameView: View {
+    @ObservedObject var viewModel: EmojiMemoryGame
 
     var body: some View {
         HStack {
@@ -21,7 +21,6 @@ struct ContentView: View {
                         .minimumScaleFactor(0.5)
                         .lineLimit(1)
                         .frame(height: geometry.size.width * 3 / 2)
-                        .foregroundColor(.green)
                         .onTapGesture {
                             self.viewModel.choose(card: card)
                         }
@@ -33,14 +32,15 @@ struct ContentView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
+    static var model = EmojiMemoryGame()
     static var previews: some View {
         Group {
-            ContentView()
+            EmojiMemoGameView(viewModel: model)
 
-            ContentView()
+            EmojiMemoGameView(viewModel: model)
                 .previewDevice(.init(rawValue: "iPhone 11 Pro Max"))
 
-            ContentView()
+            EmojiMemoGameView(viewModel: model)
                 .previewDevice(.init(rawValue: "iPhone 8"))
         }
     }
