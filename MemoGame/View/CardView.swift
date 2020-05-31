@@ -12,18 +12,24 @@ struct CardView: View {
     var card: MemoGameModel<String>.Card
 
     var body: some View {
-        ZStack {
-            if card.isFaceUp || card.isMatched {
-                RoundedRectangle(cornerRadius: 6).fill(Color.green)
-                RoundedRectangle(cornerRadius: 6).stroke(lineWidth: 3)
+        GeometryReader { geometry in
+            ZStack {
+                if self.card.isFaceUp || self.card.isMatched {
+                    RoundedRectangle(cornerRadius: 6).fill(Color.green)
+                    RoundedRectangle(cornerRadius: 6).stroke(lineWidth: 3)
 
-                Text(card.content)
-                    .foregroundColor(.white)
-            } else {
-                RoundedRectangle(cornerRadius: 6).fill(Color.white)
-                RoundedRectangle(cornerRadius: 6).stroke(lineWidth: 3)
+                    Text(self.card.content)
+                        .foregroundColor(.white)
+                } else {
+                    RoundedRectangle(cornerRadius: 6).fill(Color.white)
+                    RoundedRectangle(cornerRadius: 6).stroke(lineWidth: 3)
+                }
             }
+            .frame(height: geometry.size.width * 3 / 2)
         }
+        .font(.largeTitle)
+        .minimumScaleFactor(0.5)
+        .lineLimit(1)
     }
 }
 

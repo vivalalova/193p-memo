@@ -15,16 +15,10 @@ struct EmojiMemoGameView: View {
         HStack {
             ForEach(viewModel.cards) { card in
 
-                GeometryReader { geometry in
-                    CardView(card: card)
-                        .font(.largeTitle)
-                        .minimumScaleFactor(0.5)
-                        .lineLimit(1)
-                        .frame(height: geometry.size.width * 3 / 2)
-                        .onTapGesture {
-                            self.viewModel.choose(card: card)
-                        }
-                }
+                CardView(card: card)
+                    .onTapGesture {
+                        self.viewModel.choose(card: card)
+                    }
             }
         }
         .padding()
