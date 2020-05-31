@@ -13,23 +13,37 @@ struct CardView: View {
 
     var body: some View {
         GeometryReader { geometry in
-            ZStack {
-                if self.card.isFaceUp || self.card.isMatched {
-                    RoundedRectangle(cornerRadius: 6).fill(Color.green)
-                    RoundedRectangle(cornerRadius: 6).stroke(lineWidth: 3)
-
-                    Text(self.card.content)
-                        .foregroundColor(.white)
-                } else {
-                    RoundedRectangle(cornerRadius: 6).fill(Color.white)
-                    RoundedRectangle(cornerRadius: 6).stroke(lineWidth: 3)
-                }
-            }
-            .frame(height: geometry.size.width * 3 / 2)
+            self.body(for: geometry.size)
         }
-        .font(.largeTitle)
-        .minimumScaleFactor(0.5)
-        .lineLimit(1)
+    }
+
+    private func body(for size: CGSize) -> some View {
+        ZStack {
+            if self.card.isFaceUp || self.card.isMatched {
+                RoundedRectangle(cornerRadius: self.cornerRadius).fill(Color.green)
+                RoundedRectangle(cornerRadius: self.cornerRadius).stroke(lineWidth: self.lineWidth)
+
+                Text(self.card.content)
+                    .foregroundColor(.white)
+            } else {
+                RoundedRectangle(cornerRadius: self.cornerRadius).fill(Color.white)
+                RoundedRectangle(cornerRadius: self.cornerRadius).stroke(lineWidth: self.lineWidth)
+            }
+        }
+        .frame(height: size.width * self.radio)
+        // .font(.largeTitle)
+        .font(self.font(for: size))
+//        .minimumScaleFactor(self.minimumScaleFactor)
+//        .lineLimit(1)
+    }
+
+    // MARK: -
+
+    let cornerRadius: CGFloat = 10
+    let lineWidth: CGFloat = 3
+    let radio: CGFloat = 3 / 2
+    private func font(for size: CGSize) -> Font {
+        .system(size: min(size.width, size.height) * 0.75)
     }
 }
 

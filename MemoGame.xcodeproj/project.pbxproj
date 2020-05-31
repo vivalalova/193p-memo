@@ -18,7 +18,6 @@
 		9E3B484C24797977004FB9AA /* MemoGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3B484B24797977004FB9AA /* MemoGameModel.swift */; };
 		9E3B484E24797998004FB9AA /* EmojiMemoGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3B484D24797998004FB9AA /* EmojiMemoGame.swift */; };
 		9E3B4850247979BB004FB9AA /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3B484F247979BB004FB9AA /* CardView.swift */; };
-		9E52E51C248365B100E5CCED /* Moveable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E52E51B248365B100E5CCED /* Moveable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +55,6 @@
 		9E3B484B24797977004FB9AA /* MemoGameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoGameModel.swift; sourceTree = "<group>"; };
 		9E3B484D24797998004FB9AA /* EmojiMemoGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiMemoGame.swift; sourceTree = "<group>"; };
 		9E3B484F247979BB004FB9AA /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
-		9E52E51B248365B100E5CCED /* Moveable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moveable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,7 +173,6 @@
 		9E52E51A2483659100E5CCED /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				9E52E51B248365B100E5CCED /* Moveable.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -317,7 +314,6 @@
 				9E3B481D24796FB4004FB9AA /* EmojiMemoGameView.swift in Sources */,
 				9E3B4850247979BB004FB9AA /* CardView.swift in Sources */,
 				9E3B484C24797977004FB9AA /* MemoGameModel.swift in Sources */,
-				9E52E51C248365B100E5CCED /* Moveable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
